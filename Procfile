@@ -1,1 +1,1 @@
-web: java $JAVA_OPTS -cp target/classes:target/dependency/* com.fahed.forms.FormsApplication
+web: mvn spring-boot:run
