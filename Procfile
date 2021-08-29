@@ -1,0 +1,1 @@
+web: java -Dserver.port=51903 $JAVA_OPTS -jar target/forms-0.0.1-SNAPSHOT.jar
