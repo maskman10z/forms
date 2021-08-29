@@ -7,9 +7,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
-import static com.fahed.forms.utils.Constants.EMAIL_SUBJECT;
-import static com.fahed.forms.utils.Constants.RECEIVER_EMAIL;
-
 @RestController
 @CrossOrigin(origins = "http://localhost:4200")
 public class FormController {
@@ -28,6 +25,6 @@ public class FormController {
     @PostMapping("/questionnaire")
     public void post(@RequestBody @Validated Form form) throws Exception {
         service.save(form);
-        emailService.send(RECEIVER_EMAIL, EMAIL_SUBJECT, form.toString());
+        emailService.send(form.toString());
     }
 }
