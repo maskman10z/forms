@@ -12,7 +12,7 @@ public class FormService {
     private FormRepository repository;
 
     public void save(Form form) throws Exception {
-        if (repository.findById(form.getId()).isPresent())
+        if (form.getId() != null && repository.findById(form.getId()).isPresent())
             throw new Exception("Form already present");
         repository.save(form);
     }
