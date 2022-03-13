@@ -25,8 +25,6 @@ public class FormController {
     @PostMapping("/questionnaire")
     public void post(@RequestBody @Validated Form form) throws Exception {
 
-        System.out.println("Saving");
-        service.save(form);
         emailService.send(form.toEmail());
     }
 }
