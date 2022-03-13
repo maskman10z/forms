@@ -17,14 +17,16 @@ public class FormController {
     @Autowired
     private EmailService emailService;
 
-    @GetMapping("/")
+    @GetMapping("/questionnaire")
     public Iterable<Form> getAll() {
         return service.getAll();
     }
 
     @PostMapping("/questionnaire")
     public void post(@RequestBody @Validated Form form) throws Exception {
+
+        System.out.println("Saving");
         service.save(form);
-        emailService.send(form.toString());
+        emailService.send(form.toEmail());
     }
 }
